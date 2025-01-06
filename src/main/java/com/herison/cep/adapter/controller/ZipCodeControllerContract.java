@@ -1,5 +1,6 @@
 package com.herison.cep.adapter.controller;
 
+import com.herison.cep.adapter.inbound.response.EstablishmentsByZipcodeResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -19,6 +20,6 @@ public interface ZipCodeControllerContract {
                     @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
             }
     )
-    ResponseEntity<Void> searchEstablishment(String zipCode);
+    ResponseEntity<EstablishmentsByZipcodeResponse> searchEstablishment(String zipCode);
 
 }
