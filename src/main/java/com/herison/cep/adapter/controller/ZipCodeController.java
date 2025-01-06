@@ -2,6 +2,7 @@ package com.herison.cep.adapter.controller;
 
 import com.herison.cep.adapter.inbound.response.EstablishmentsByZipcodeResponse;
 import com.herison.cep.core.port.inbound.AddressZipcodeContract;
+import com.herison.cep.core.port.inbound.EstablishmentsByZipcodeContract;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/search")
 public class ZipCodeController implements ZipCodeControllerContract{
 
-    private final AddressZipcodeContract addressZipcodeContract;
+    private final EstablishmentsByZipcodeContract establishmentsByZipcodeContract;
 
-    public ZipCodeController(AddressZipcodeContract addressZipcodeContract) {
-        this.addressZipcodeContract = addressZipcodeContract;
+    public ZipCodeController(EstablishmentsByZipcodeContract establishmentsByZipcodeContract) {
+        this.establishmentsByZipcodeContract = establishmentsByZipcodeContract;
     }
 
     @Override
     @GetMapping("/{zipcode}")
     public ResponseEntity<EstablishmentsByZipcodeResponse> searchEstablishment(@PathVariable String zipcode){
-        System.out.println("Controller: " + addressZipcodeContract.execute(zipcode));
+        System.out.println("Controller: " + establishmentsByZipcodeContract.execute(zipcode));
         //return ResponseEntity.ok(EstablishmentsByZipcodeResponse.fromDomain(getUserByIdUseCasePort.execute(userId)));
         return null;
     }

@@ -1,8 +1,9 @@
 package com.herison.cep.core.port.inbound;
 
-
-import com.herison.cep.core.domain.EstablishmentsByZipcode;
+import com.herison.cep.adapter.inbound.response.EstablishmentsByZipcodeResponse;
 
 public interface EstablishmentsByZipcodeContract {
-    EstablishmentsByZipcode excute(String zipcode);
+
+    EstablishmentsByZipcodeResponse execute(String zipcode);
+
 }

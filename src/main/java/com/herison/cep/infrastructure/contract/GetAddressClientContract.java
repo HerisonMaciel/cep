@@ -11,5 +11,5 @@ url = "${get.address-url}")
 public interface GetAddressClientContract {
 
     @GetMapping("/zipcode/{zipcode}/json")
-    AddressResponse buscarCep(@PathVariable("zipcode") String zipcode);
+    AddressResponse searchZipCode(@PathVariable("zipcode") String zipcode);
 }

@@ -1,9 +1,9 @@
 package com.herison.cep.core.port.inbound;
 
-import com.herison.cep.core.domain.Establishment;
+import com.herison.cep.core.dtos.EstablishmentResponse;
 
 public interface EstablishmentContract {
 
-    Establishment execute(String zipcode);
+    EstablishmentResponse execute(String zipcode);
 
 }
