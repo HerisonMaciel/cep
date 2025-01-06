@@ -3,6 +3,7 @@ package com.herison.cep.infrastructure;
 import com.herison.cep.core.port.inbound.AddressZipcodeContract;
 import com.herison.cep.core.port.inbound.EstablishmentContract;
 import com.herison.cep.core.port.inbound.EstablishmentsByZipcodeContract;
+import com.herison.cep.core.port.outbound.SaveEstablishmentsByZipcodePort;
 import com.herison.cep.core.usecase.AddressZipcodeUseCase;
 import com.herison.cep.core.usecase.EstablishmentUseCase;
 import com.herison.cep.core.usecase.EstablishmentsByZipcodeUseCase;
@@ -24,18 +25,12 @@ public class BeanConfig {
         return new EstablishmentUseCase(getEstablishmentClientContract);
     }
 
-   /*@Bean
-    public EstablishmentsByZipcodeContract createEstablishmentbyZipCodePort(
-            AddressZipcodeContract addressZipcodeContract,
-            EstablishmentUseCase establishmentUseCase){
-        return new EstablishmentsByZipcodeUseCase(addressZipcodeContract, establishmentUseCase);
-    }*/
-
     @Bean
     public EstablishmentsByZipcodeContract createEstablishmentbyZipCodePort(
             AddressZipcodeContract addressZipcodeContract,
-            EstablishmentContract establishmentContract) {
-        return new EstablishmentsByZipcodeUseCase(addressZipcodeContract, establishmentContract);
+            EstablishmentContract establishmentContract,
+            SaveEstablishmentsByZipcodePort saveEstablishmentsByZipcodePort) {
+        return new EstablishmentsByZipcodeUseCase(addressZipcodeContract, establishmentContract, saveEstablishmentsByZipcodePort);
     }
 
 }

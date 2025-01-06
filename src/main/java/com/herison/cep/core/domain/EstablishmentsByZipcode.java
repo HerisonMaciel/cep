@@ -4,6 +4,7 @@ import java.util.List;
 
 public class EstablishmentsByZipcode {
 
+    private String id;
     private AddressZipCode addressZipCode;
     private List<Establishment> establishmentList;
 
@@ -14,12 +15,12 @@ public class EstablishmentsByZipcode {
         this.establishmentList = establishmentList;
     }
 
-    public AddressZipCode getAddressZipCode() {
-        return addressZipCode;
-    }
-
     public void setAddressZipCode(AddressZipCode addressZipCode) {
         this.addressZipCode = addressZipCode;
+    }
+
+    public AddressZipCode getAddressZipCode() {
+        return addressZipCode;
     }
 
     public List<Establishment> getEstablishmentList() {
@@ -28,6 +29,15 @@ public class EstablishmentsByZipcode {
 
     public void setEstablishmentList(List<Establishment> establishmentList) {
         this.establishmentList = establishmentList;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override

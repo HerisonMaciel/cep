@@ -24,7 +24,8 @@ public class ZipCodeController implements ZipCodeControllerContract{
     @Override
     @GetMapping("/{zipcode}")
     public ResponseEntity<EstablishmentsByZipcodeResponse> searchEstablishment(@PathVariable String zipcode){
-        System.out.println("Controller: " + establishmentsByZipcodeContract.execute(zipcode));
+        var response = establishmentsByZipcodeContract.execute(zipcode);
+        System.out.println("Controller: " + response);
         //return ResponseEntity.ok(EstablishmentsByZipcodeResponse.fromDomain(getUserByIdUseCasePort.execute(userId)));
         return null;
     }
