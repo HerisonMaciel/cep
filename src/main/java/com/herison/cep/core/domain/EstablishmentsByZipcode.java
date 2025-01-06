@@ -15,6 +15,12 @@ public class EstablishmentsByZipcode {
         this.establishmentList = establishmentList;
     }
 
+    public EstablishmentsByZipcode(String id, AddressZipCode addressZipCode, List<Establishment> establishmentList) {
+        this.id = id;
+        this.addressZipCode = addressZipCode;
+        this.establishmentList = establishmentList;
+    }
+
     public void setAddressZipCode(AddressZipCode addressZipCode) {
         this.addressZipCode = addressZipCode;
     }

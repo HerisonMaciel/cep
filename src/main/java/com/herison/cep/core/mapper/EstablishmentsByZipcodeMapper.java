@@ -30,10 +30,11 @@ public class EstablishmentsByZipcodeMapper {
             return null;
         }
 
+        String id = entity.getId();
         AddressResponse addressResponse = mapAddressZipCode(entity.getAddressZipCode());
         List<EstablishmentResponse> establishmentResponse = mapEstablishmentList(entity.getEstablishmentList());
 
-        return new EstablishmentsByZipcodeResponse(addressResponse, establishmentResponse);
+        return new EstablishmentsByZipcodeResponse(id, addressResponse, establishmentResponse);
     }
 
     private static AddressZipCode mapAddressResponse(AddressResponse addressResponse) {
