@@ -15,8 +15,8 @@ public interface ZipCodeControllerContract {
             description = "Endpoint to search for establishment by zip code.",
             responses = {
                     @ApiResponse(responseCode = "200", description = "content found successfully"),
+                    @ApiResponse(responseCode = "400", description = "poorly formatted string", content = @Content),
                     @ApiResponse(responseCode = "404", description = "resource not found", content = @Content),
-                    @ApiResponse(responseCode = "404", description = "poorly formatted string", content = @Content),
                     @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
             }
     )

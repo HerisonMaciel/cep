@@ -1,4 +1,4 @@
-package com.herison.cep.infrastructure;
+package com.herison.cep.infrastructure.contract;
 
 
 import com.herison.cep.core.dtos.AddressResponse;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "get-address",
 url = "${get.address-url}")
-public interface GetAddressClient {
+public interface GetAddressClientContract {
 
     @GetMapping("/zipcode/{zipcode}/json")
     AddressResponse buscarCep(@PathVariable("zipcode") String zipcode);

@@ -1,8 +1,8 @@
-package com.herison.cep.config;
+package com.herison.cep.infrastructure;
 
 import com.herison.cep.core.port.inbound.AddressZipcodeContract;
 import com.herison.cep.core.usecase.AddressZipcodeUseCase;
-import com.herison.cep.infrastructure.GetAddressClient;
+import com.herison.cep.infrastructure.contract.GetAddressClientContract;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfig {
 
     @Bean
-    public AddressZipcodeContract createAddressUseCasePort(GetAddressClient getAddressClient) {
-        return new AddressZipcodeUseCase(getAddressClient);
+    public AddressZipcodeContract createAddressUseCasePort(GetAddressClientContract getAddressClientContract) {
+        return new AddressZipcodeUseCase(getAddressClientContract);
     }
 
 }

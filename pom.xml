@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.herison</groupId>
-	<artifactId>cep</artifactId>
+	<artifactId>establishmentByZipCode</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cep</name>
 	<description>Project search zip code</description>
