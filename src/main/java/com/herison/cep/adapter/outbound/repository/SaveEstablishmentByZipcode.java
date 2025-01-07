@@ -3,6 +3,7 @@ package com.herison.cep.adapter.outbound.repository;
 import com.herison.cep.core.domain.EstablishmentsByZipcode;
 import com.herison.cep.core.port.outbound.SaveEstablishmentsByZipcodePort;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class SaveEstablishmentByZipcode implements SaveEstablishmentsByZipcodePort {
@@ -13,15 +14,24 @@ public class SaveEstablishmentByZipcode implements SaveEstablishmentsByZipcodePo
         this.establishmentByZipcodeRepository = establishmentByZipcodeRepository;
     }
 
+
     @Override
+    @Transactional
     public EstablishmentsByZipcode save(EstablishmentsByZipcode establishmentsByZipcode) {
+        try {
+            EstablishmentByZipcodeEntity establishmentByZipcodeEntity = new EstablishmentByZipcodeEntity();
+            establishmentByZipcodeEntity.setZipcode(establishmentsByZipcode.getZipcode());
+            establishmentByZipcodeEntity.setAddressZipCode(establishmentsByZipcode.getAddressZipCode());
+            establishmentByZipcodeEntity.setEstablishmentList(establishmentsByZipcode.getEstablishmentList());
 
-        EstablishmentByZipcodeEntity establishmentByZipcodeEntity = new EstablishmentByZipcodeEntity();
+            establishmentByZipcodeEntity = establishmentByZipcodeRepository.save(establishmentByZipcodeEntity);
 
-        establishmentByZipcodeEntity.setAddressZipCode(establishmentsByZipcode.getAddressZipCode());
-        establishmentByZipcodeEntity.setEstablishmentList(establishmentsByZipcode.getEstablishmentList());
+            establishmentsByZipcode.setCreatedAt(establishmentByZipcodeEntity.getCreatedAt());
+            establishmentsByZipcode.setUpdatedAt(establishmentByZipcodeEntity.getUpdatedAt());
 
-        establishmentsByZipcode.setId(establishmentByZipcodeRepository.save(establishmentByZipcodeEntity).getId());
+        } catch (Exception e) {
+            throw new RuntimeException("Error saving EstablishmentByZipcode", e);
+        }
 
         return establishmentsByZipcode;
     }

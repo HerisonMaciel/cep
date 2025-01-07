@@ -7,12 +7,40 @@
             },
             "response": {
                 "status": 200,
-                "jsonBody": {
+                "jsonBody": [
+                    {
                     "name": "Ze do lanche",
                     "number": "443",
                     "contact": "85988201399",
                     "site": "www.zedolanche.com.br"
-                },
+                    }
+                ],
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "urlPattern": "/establishment/60861125/json"
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": [
+                    {
+                        "name": "Ze do lanche",
+                        "number": "443",
+                        "contact": "85988201399",
+                        "site": "www.zedolanche.com.br"
+                    },
+                    {
+                        "name": "Maria do bolo",
+                        "number": "123",
+                        "contact": "85988765432",
+                        "site": "www.mariadobolo.com.br"
+                    }
+                ],
                 "headers": {
                     "Content-Type": "application/json"
                 }

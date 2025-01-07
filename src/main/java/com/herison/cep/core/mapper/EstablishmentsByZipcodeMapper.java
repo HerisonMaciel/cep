@@ -8,6 +8,7 @@ import com.herison.cep.core.dtos.AddressResponse;
 import com.herison.cep.core.dtos.EstablishmentByZipcodeDto;
 import com.herison.cep.core.dtos.EstablishmentResponse;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,10 +20,11 @@ public class EstablishmentsByZipcodeMapper {
             return null;
         }
 
+        String zipcode = dto.zipcode();
         AddressZipCode addressZipCode = mapAddressResponse(dto.addressResponse());
         List<Establishment> establishments = mapEstablishmentResponse(dto.establishmentResponse());
 
-        return new EstablishmentsByZipcode(addressZipCode, establishments);
+        return new EstablishmentsByZipcode(zipcode, addressZipCode, establishments);
     }
 
     public static EstablishmentsByZipcodeResponse toDto(EstablishmentsByZipcode entity) {
@@ -30,11 +32,13 @@ public class EstablishmentsByZipcodeMapper {
             return null;
         }
 
-        String id = entity.getId();
+        String zipcode = entity.getZipcode();
         AddressResponse addressResponse = mapAddressZipCode(entity.getAddressZipCode());
         List<EstablishmentResponse> establishmentResponse = mapEstablishmentList(entity.getEstablishmentList());
+        LocalDateTime createdAt = entity.getCreatedAt();
+        LocalDateTime updatedAt = entity.getUpdatedAt();
 
-        return new EstablishmentsByZipcodeResponse(id, addressResponse, establishmentResponse);
+        return new EstablishmentsByZipcodeResponse(zipcode, addressResponse, establishmentResponse, createdAt, updatedAt);
     }
 
     private static AddressZipCode mapAddressResponse(AddressResponse addressResponse) {
@@ -59,20 +63,21 @@ public class EstablishmentsByZipcodeMapper {
         );
     }
 
-    private static List<Establishment> mapEstablishmentResponse(EstablishmentResponse establishmentResponse) {
-        if (establishmentResponse == null) {
+    private static List<Establishment> mapEstablishmentResponse(List<EstablishmentResponse> establishmentResponses) {
+        if (establishmentResponses == null || establishmentResponses.isEmpty()) {
             return Collections.emptyList();
         }
 
-        Establishment establishment = new Establishment(
-                establishmentResponse.name(),
-                establishmentResponse.number(),
-                establishmentResponse.contact(),
-                establishmentResponse.site()
-        );
-
-        return List.of(establishment);
+        return establishmentResponses.stream()
+                .map(establishmentResponse -> new Establishment(
+                        establishmentResponse.name(),
+                        establishmentResponse.number(),
+                        establishmentResponse.contact(),
+                        establishmentResponse.site()
+                ))
+                .collect(Collectors.toList());
     }
+
 
     private static AddressResponse mapAddressZipCode(AddressZipCode addressZipCode) {
         if (addressZipCode == null) {

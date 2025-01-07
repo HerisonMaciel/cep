@@ -3,6 +3,33 @@
         {
             "request": {
                 "method": "GET",
+                "urlPattern": "/zipcode/60861125/json"
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": {
+                    "cep": "60861-125",
+                    "logradouro": "Travessa Serralheiro",
+                    "complemento": "",
+                    "unidade": "",
+                    "bairro": "Boa Vista-Castelão",
+                    "localidade": "Fortaleza",
+                    "uf": "CE",
+                    "estado": "Ceará",
+                    "regiao": "Nordeste",
+                    "ibge": "2304400",
+                    "gia": "",
+                    "ddd": "85",
+                    "siafi": "1389"
+                },
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
                 "urlPattern": "/zipcode/60861124/json"
             },
             "response": {

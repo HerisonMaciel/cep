@@ -5,10 +5,12 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @FeignClient(name = "get-establishment",
         url = "${get.establishment-url}")
 public interface GetEstablishmentClientContract {
 
     @GetMapping("/establishment/{zipcode}/json")
-    EstablishmentResponse searchEstablishment(@PathVariable("zipcode") String zipcode);
+    List<EstablishmentResponse> searchEstablishment(@PathVariable("zipcode") String zipcode);
 }

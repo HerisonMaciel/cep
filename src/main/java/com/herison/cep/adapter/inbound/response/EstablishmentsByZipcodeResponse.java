@@ -3,23 +3,28 @@ package com.herison.cep.adapter.inbound.response;
 import com.herison.cep.core.dtos.AddressResponse;
 import com.herison.cep.core.dtos.EstablishmentResponse;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class EstablishmentsByZipcodeResponse {
 
+
+
     private String id;
     private AddressResponse addressResponse;
     private List<EstablishmentResponse> EstablishmentResponseList;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public EstablishmentsByZipcodeResponse(AddressResponse addressResponse, List<EstablishmentResponse> establishmentResponseList) {
-        this.addressResponse = addressResponse;
-        EstablishmentResponseList = establishmentResponseList;
-    }
 
-    public EstablishmentsByZipcodeResponse(String id, AddressResponse addressResponse, List<EstablishmentResponse> establishmentResponseList) {
+    public EstablishmentsByZipcodeResponse(String id, AddressResponse addressResponse,
+                                           List<EstablishmentResponse> establishmentResponseList,
+                                           LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.addressResponse = addressResponse;
         EstablishmentResponseList = establishmentResponseList;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public String getId() {
@@ -46,13 +51,30 @@ public class EstablishmentsByZipcodeResponse {
         EstablishmentResponseList = establishmentResponseList;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     @Override
     public String toString() {
         return "EstablishmentsByZipcodeResponse{" +
-                "addressResponse=" + addressResponse +
+                "id='" + id + '\'' +
+                ", addressResponse=" + addressResponse +
                 ", EstablishmentResponseList=" + EstablishmentResponseList +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }

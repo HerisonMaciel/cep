@@ -1,7 +1,6 @@
 package com.herison.cep.adapter.controller;
 
 import com.herison.cep.adapter.inbound.response.EstablishmentsByZipcodeResponse;
-import com.herison.cep.core.port.inbound.AddressZipcodeContract;
 import com.herison.cep.core.port.inbound.EstablishmentsByZipcodeContract;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

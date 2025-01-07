@@ -1,12 +1,16 @@
 package com.herison.cep.core.domain;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class EstablishmentsByZipcode {
 
-    private String id;
+    private String zipcode;
     private AddressZipCode addressZipCode;
     private List<Establishment> establishmentList;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
 
     public EstablishmentsByZipcode(){}
 
@@ -15,10 +19,18 @@ public class EstablishmentsByZipcode {
         this.establishmentList = establishmentList;
     }
 
-    public EstablishmentsByZipcode(String id, AddressZipCode addressZipCode, List<Establishment> establishmentList) {
-        this.id = id;
+    public EstablishmentsByZipcode(String zipcode, AddressZipCode addressZipCode, List<Establishment> establishmentList) {
+        this.zipcode = zipcode;
         this.addressZipCode = addressZipCode;
         this.establishmentList = establishmentList;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     public void setAddressZipCode(AddressZipCode addressZipCode) {
@@ -37,20 +49,30 @@ public class EstablishmentsByZipcode {
         this.establishmentList = establishmentList;
     }
 
-
-    public String getId() {
-        return id;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
     public String toString() {
         return "EstablishmentsByZipcode{" +
-                "addressZipCode=" + addressZipCode +
+                "zipcode='" + zipcode + '\'' +
+                ", addressZipCode=" + addressZipCode +
                 ", establishmentList=" + establishmentList +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }
