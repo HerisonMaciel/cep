@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.logging.Logger;
+
 @Slf4j
 @RestController
 @RequestMapping("/search")
@@ -23,6 +25,7 @@ public class ZipCodeController implements ZipCodeControllerContract{
     @Override
     @GetMapping("/{zipcode}")
     public ResponseEntity<EstablishmentsByZipcodeResponse> searchEstablishment(@PathVariable String zipcode){
+        //log.info("Get request search zipcode: " + zipcode);
         return ResponseEntity.ok(establishmentsByZipcodeContract.execute(zipcode));
     }
 

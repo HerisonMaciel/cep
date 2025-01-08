@@ -14,11 +14,6 @@ public class EstablishmentsByZipcode {
 
     public EstablishmentsByZipcode(){}
 
-    public EstablishmentsByZipcode(AddressZipCode addressZipCode, List<Establishment> establishmentList) {
-        this.addressZipCode = addressZipCode;
-        this.establishmentList = establishmentList;
-    }
-
     public EstablishmentsByZipcode(String zipcode, AddressZipCode addressZipCode, List<Establishment> establishmentList) {
         this.zipcode = zipcode;
         this.addressZipCode = addressZipCode;

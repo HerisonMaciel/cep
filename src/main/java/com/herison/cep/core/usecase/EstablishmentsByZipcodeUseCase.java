@@ -61,7 +61,6 @@ public class EstablishmentsByZipcodeUseCase implements EstablishmentsByZipcodeCo
         return EstablishmentsByZipcodeMapper.toDto(savedEntity);
     }
 
-
     private EstablishmentByZipcodeDto junction(String zipcode, AddressResponse addressResponse, List<EstablishmentResponse> establishmentResponse) {
         return new EstablishmentByZipcodeDto(zipcode, addressResponse, establishmentResponse);
     }

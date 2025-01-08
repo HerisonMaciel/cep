@@ -16,7 +16,11 @@ public class EstablishmentUseCase implements EstablishmentContract {
     }
 
     public List<EstablishmentResponse> execute(String zipcode){
-        return getEstablishmentClientContract.searchEstablishment(zipcode);
+        try {
+            return getEstablishmentClientContract.searchEstablishment(zipcode);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

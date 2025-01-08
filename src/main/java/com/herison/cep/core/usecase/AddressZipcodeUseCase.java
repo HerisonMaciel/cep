@@ -14,7 +14,12 @@ public class AddressZipcodeUseCase implements AddressZipcodeContract {
 
     @Override
     public AddressResponse execute(String zipcode) {
-        return getAddressClientContract.searchZipCode(zipcode);
+        try {
+            return getAddressClientContract.searchZipCode(zipcode);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 

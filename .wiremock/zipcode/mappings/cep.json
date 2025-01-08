@@ -9,7 +9,7 @@
                 "status": 200,
                 "jsonBody": {
                     "cep": "60861-125",
-                    "logradouro": "Travessa Serralheiro",
+                    "logradouro": "teste fora",
                     "complemento": "",
                     "unidade": "",
                     "bairro": "Boa Vista-Castelão",

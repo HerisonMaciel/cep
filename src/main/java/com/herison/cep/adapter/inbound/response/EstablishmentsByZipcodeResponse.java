@@ -8,31 +8,29 @@ import java.util.List;
 
 public class EstablishmentsByZipcodeResponse {
 
-
-
-    private String id;
+    private String zipcode;
     private AddressResponse addressResponse;
     private List<EstablishmentResponse> EstablishmentResponseList;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
 
-    public EstablishmentsByZipcodeResponse(String id, AddressResponse addressResponse,
+    public EstablishmentsByZipcodeResponse(String zipcode, AddressResponse addressResponse,
                                            List<EstablishmentResponse> establishmentResponseList,
                                            LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
+        this.zipcode = zipcode;
         this.addressResponse = addressResponse;
         EstablishmentResponseList = establishmentResponseList;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public String getId() {
-        return id;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setZipcode(String id) {
+        this.zipcode = zipcode;
     }
 
     public AddressResponse getAddressResponse() {
@@ -70,7 +68,7 @@ public class EstablishmentsByZipcodeResponse {
     @Override
     public String toString() {
         return "EstablishmentsByZipcodeResponse{" +
-                "id='" + id + '\'' +
+                "id='" + zipcode + '\'' +
                 ", addressResponse=" + addressResponse +
                 ", EstablishmentResponseList=" + EstablishmentResponseList +
                 ", createdAt=" + createdAt +

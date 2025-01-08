@@ -78,5 +78,17 @@ public class EstablishmentByZipcodeEntity {
     public void setVersion(Integer version) {
         this.version = version;
     }
+
+    @Override
+    public String toString() {
+        return "EstablishmentByZipcodeEntity{" +
+                "zipcode='" + zipcode + '\'' +
+                ", addressZipCode=" + addressZipCode +
+                ", establishmentList=" + establishmentList +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", version=" + version +
+                '}';
+    }
 }
 
