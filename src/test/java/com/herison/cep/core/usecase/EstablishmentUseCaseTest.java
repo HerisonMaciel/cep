@@ -9,14 +9,19 @@ import com.herison.cep.infrastructure.contract.GetEstablishmentClientContract;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.List;
 
+@SpringBootTest
 public class EstablishmentUseCaseTest {
 
-    @Mock
+    @MockBean
     private GetEstablishmentClientContract getEstablishmentClientContract;
 
+    @Autowired
     private EstablishmentUseCase establishmentUseCase;
 
     @BeforeEach
