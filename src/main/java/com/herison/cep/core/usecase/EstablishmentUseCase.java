@@ -19,7 +19,7 @@ public class EstablishmentUseCase implements EstablishmentContract {
         try {
             return getEstablishmentClientContract.searchEstablishment(zipcode);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("API error", e);
         }
     }
 

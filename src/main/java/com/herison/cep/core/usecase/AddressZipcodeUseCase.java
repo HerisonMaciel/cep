@@ -17,7 +17,7 @@ public class AddressZipcodeUseCase implements AddressZipcodeContract {
         try {
             return getAddressClientContract.searchZipCode(zipcode);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("API error", e);
         }
 
     }
