@@ -16,26 +16,24 @@ import com.herison.cep.core.port.outbound.SaveEstablishmentsByZipcodePort;
 import com.herison.cep.infrastructure.exception.ZipCodeIncorrectException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class EstablishmentsByZipcodeUseCaseTest {
 
-    @MockBean
+    @Mock
     private AddressZipcodeContract addressZipcodeContract;
-    @MockBean
+    @Mock
     private EstablishmentContract establishmentContract;
-    @MockBean
+    @Mock
     private SaveEstablishmentsByZipcodePort saveEstablishmentsByZipcodePort;
-    @MockBean
+    @Mock
     private GetEstablishmentsByZipcodePort getEstablishmentsByZipcodePort;
 
-    @Autowired
     private EstablishmentsByZipcodeUseCase establishmentsByZipcodeUseCase;
 
     @BeforeEach

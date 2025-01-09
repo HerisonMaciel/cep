@@ -8,20 +8,18 @@ import com.herison.cep.core.dtos.EstablishmentResponse;
 import com.herison.cep.infrastructure.contract.GetEstablishmentClientContract;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class EstablishmentUseCaseTest {
 
-    @MockBean
+    @Mock
     private GetEstablishmentClientContract getEstablishmentClientContract;
 
-    @Autowired
     private EstablishmentUseCase establishmentUseCase;
 
     @BeforeEach
