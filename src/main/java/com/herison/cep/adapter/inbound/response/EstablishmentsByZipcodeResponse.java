@@ -2,10 +2,12 @@ package com.herison.cep.adapter.inbound.response;
 
 import com.herison.cep.core.dtos.AddressResponse;
 import com.herison.cep.core.dtos.EstablishmentResponse;
+import lombok.AllArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@AllArgsConstructor
 public class EstablishmentsByZipcodeResponse {
 
     private String zipcode;
@@ -13,17 +15,6 @@ public class EstablishmentsByZipcodeResponse {
     private List<EstablishmentResponse> EstablishmentResponseList;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
-
-    public EstablishmentsByZipcodeResponse(String zipcode, AddressResponse addressResponse,
-                                           List<EstablishmentResponse> establishmentResponseList,
-                                           LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.zipcode = zipcode;
-        this.addressResponse = addressResponse;
-        EstablishmentResponseList = establishmentResponseList;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
 
     public String getZipcode() {
         return zipcode;

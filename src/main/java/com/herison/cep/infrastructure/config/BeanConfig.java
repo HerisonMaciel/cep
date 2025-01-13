@@ -1,4 +1,4 @@
-package com.herison.cep.infrastructure;
+package com.herison.cep.infrastructure.config;
 
 import com.herison.cep.core.port.inbound.AddressZipcodeContract;
 import com.herison.cep.core.port.inbound.EstablishmentContract;
