@@ -1,5 +1,6 @@
-package com.herison.cep.adapter.outbound.repository;
+package com.herison.cep.adapter.outbound.repository.zipcode;
 
+import com.herison.cep.adapter.outbound.repository.log.LogEstablishmentByZipcodeEntity;
 import com.herison.cep.core.domain.EstablishmentsByZipcode;
 import com.herison.cep.core.port.outbound.GetEstablishmentsByZipcodePort;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -56,7 +57,7 @@ public class GetEstablishmentByZipcode implements GetEstablishmentsByZipcodePort
     }
 
     private void saveLog(EstablishmentByZipcodeEntity establishmentByZipcodeEntity){
-        LogEntity log = new LogEntity();
+        LogEstablishmentByZipcodeEntity log = new LogEstablishmentByZipcodeEntity();
         log.setEstablishmentByZipcodeEntity(establishmentByZipcodeEntity);
         log.setCreatedAt(establishmentByZipcodeEntity.getCreatedAt());
 

@@ -1,4 +1,4 @@
-package com.herison.cep.infrastructure;
+package com.herison.cep.infrastructure.config;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
